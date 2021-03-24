@@ -1,0 +1,16 @@
+[user]
+	name = FlyingPig
+	email = 60659728+PKUFlyingPig@users.noreply.github.com
+[alias]	
+	graph = log --all --graph --decorate --oneline
+	lol = log --graph --oneline --decorate --color --all
+[core]
+	excludesfile = /Users/apple/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/apple/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/apple/.stCommitMsg

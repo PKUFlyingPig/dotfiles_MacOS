@@ -125,6 +125,8 @@ alias code="cd ~/code; subl "
 alias gcc="gcc-9"
 alias fixbox="sudo /Library/Application\ Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh restart"
 alias gs="git status"
+alias gll='git log --graph --pretty=oneline --abbrev-commit'
+alias cat='bat'
 #use vim in zsh_shell
 bindkey -v
 #the fuck
@@ -157,4 +159,27 @@ RPROMPT='%*'
 ## handy functions
 function mkcd() {
     mkdir -p "$@" && cd "$_";
+}
+
+# Go up [n] directories
+function up()
+{
+    local cdir="$(pwd)"
+    if [[ "${1}" == "" ]]; then
+        cdir="$(dirname "${cdir}")"
+    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
+        echo "Error: argument must be a number"
+    elif ! [[ "${1}" -gt "0" ]]; then
+        echo "Error: argument must be positive"
+    else
+        for ((i=0; i<${1}; i++)); do
+            local ncdir="$(dirname "${cdir}")"
+            if [[ "${cdir}" == "${ncdir}" ]]; then
+                break
+            else
+                cdir="${ncdir}"
+            fi
+        done
+    fi
+    cd "${cdir}"
 }
