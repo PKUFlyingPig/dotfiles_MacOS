@@ -6,10 +6,13 @@
 
 - link:
 #    ~/.tmux.conf: tmux.conf
-     ~/.vim:
+#     ~/.vim:
      ~/.vimrc: 
      ~/.zshrc:
      ~/.gitconfig: 
+     ~/.tmux:
+     ~/.tmux.conf: tmux/.tmux.conf
+     ~/.tmux.conf.local: 
     
 
 
