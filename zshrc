@@ -2,7 +2,7 @@
 export PATH="~/anaconda3/bin:~/anaconda3/condabin:/usr/local/Cellar/gcc@7/7.4.0_2bin:/usr/local/Cellar/gcc@7/7.4.0_2/lib:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/Cellar/gcc@7/7.4.0_2/bin:/Applications/MacVim.app/Contents/bin:/usr/local/smlnj/bin:/opt/local/bin"
 export PATH=$PATH:/usr/local/opt/riscv-gnu-toolchain/bin
 export PATH=$PATH:/Applications/Blender.app/Contents/MacOS
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/apple/.oh-my-zsh"
 
@@ -101,37 +101,16 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias d='cd ~/desktop' 
-alias jn='jupyter notebook'
-alias git='/usr/local/bin/git'
-alias st='streamlit run'
-alias view='fzf --preview "cat {}"'
-alias ticket='kinit -kt /Users/apple/FlyingPig.keytab FlyingPig@CORP.PKUSC.ORG'
-alias ls='ls -AlhF'
-alias lls='exa -lhBiS'
-alias weather='curl wttr.in/rugao'
-alias tnew="tmux new -s"
-alias tls="tmux ls"
-alias tatt="tmux a -t"
-alias tkill="tmux kill-session -t"
-alias play="cd ~/code; subl "
-alias gcc="gcc-9"
-alias fixbox="sudo /Library/Application\ Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh restart"
-alias gs="git status"
-alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias cat='bat'
+# setting up aliases
+source ~/.shell/aliases.sh
+
+# setting up handy functions
+source ~/.shell/functions.sh
+
 #use vim in zsh_shell
 bindkey -v
 #the fuck
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -157,30 +136,3 @@ source <(navi widget zsh)
 ## customize Prompt
 RPROMPT='%*'
 
-## handy functions
-function mkcd() {
-    mkdir -p "$@" && cd "$_";
-}
-
-# Go up [n] directories
-function up()
-{
-    local cdir="$(pwd)"
-    if [[ "${1}" == "" ]]; then
-        cdir="$(dirname "${cdir}")"
-    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
-        echo "Error: argument must be a number"
-    elif ! [[ "${1}" -gt "0" ]]; then
-        echo "Error: argument must be positive"
-    else
-        for ((i=0; i<${1}; i++)); do
-            local ncdir="$(dirname "${cdir}")"
-            if [[ "${cdir}" == "${ncdir}" ]]; then
-                break
-            else
-                cdir="${ncdir}"
-            fi
-        done
-    fi
-    cd "${cdir}"
-}

@@ -13,6 +13,7 @@
      ~/.tmux:
      ~/.tmux.conf: tmux/.tmux.conf
      ~/.tmux.conf.local: 
+     ~/.shell:
     
 
 
