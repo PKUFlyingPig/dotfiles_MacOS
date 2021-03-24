@@ -13,6 +13,9 @@ export PYSPARK_PYTHON=python3
 export PYSPARK_DRIVER_PYTHON=jupyter-notebook
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
+# use bat to colorize man page, need bat to be installed first
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
