@@ -2,6 +2,7 @@
 export PATH="~/anaconda3/bin:~/anaconda3/condabin:/usr/local/Cellar/gcc@7/7.4.0_2bin:/usr/local/Cellar/gcc@7/7.4.0_2/lib:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/Cellar/gcc@7/7.4.0_2/bin:/Applications/MacVim.app/Contents/bin:/usr/local/smlnj/bin:/opt/local/bin"
 export PATH=$PATH:/usr/local/opt/riscv-gnu-toolchain/bin
 export PATH=$PATH:/Applications/Blender.app/Contents/MacOS
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/apple/.oh-my-zsh"
 
@@ -121,7 +122,7 @@ alias tnew="tmux new -s"
 alias tls="tmux ls"
 alias tatt="tmux a -t"
 alias tkill="tmux kill-session -t"
-alias code="cd ~/code; subl "
+alias play="cd ~/code; subl "
 alias gcc="gcc-9"
 alias fixbox="sudo /Library/Application\ Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh restart"
 alias gs="git status"
